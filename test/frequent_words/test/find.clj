@@ -29,3 +29,7 @@
   (is (= ["asas" "sasa"] (find-max-items {"asas" 3 "sasa" 3})))
   )
 
+(deftest do-work-for-text-test
+  (is (= ["asas"] (do-work-for-text "asasasas" 4)))
+  )
+
