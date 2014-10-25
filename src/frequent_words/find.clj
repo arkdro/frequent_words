@@ -29,11 +29,15 @@
         sorted (sort ks)]
     sorted))
 
+(defn do-work-for-text [text k]
+  (let [freq-data (iter-over-text text k)
+        res (find-max-items freq-data)]
+    res))
+
 (defn do-all-work [opts]
   (let [[text k-str] (pattern_count.core/read-data opts)
         k (Integer/parseInt k-str)
-        freq-data (iter-over-text text k)
-        res (find-max-items freq-data)
+        res (do-work-for-text text k)
         ]
     res))
 
