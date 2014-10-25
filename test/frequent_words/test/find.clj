@@ -23,3 +23,9 @@
   (is (= {"asas" 3 "sasa" 2} (iter-over-text "asasasas" 4)))
   )
 
+(deftest find-max-items-test
+  (is (= ["asas"] (find-max-items {"asas" 2 "sasa" 1})))
+  (is (= ["sasa"] (find-max-items {"asas" 1 "sasa" 2})))
+  (is (= ["asas" "sasa"] (find-max-items {"asas" 3 "sasa" 3})))
+  )
+
