@@ -11,3 +11,15 @@
   (is (= false (is-data-available 1 1 1)))
   )
 
+(deftest add-one-k-mer-test
+  (is (= {"qwe" 1} (add-one-k-mer 0 "qwer" 3 {})))
+  (is (= {"qwe" 2 "asd" 3} (add-one-k-mer 0 "qwer" 3 {"qwe" 1 "asd" 3})))
+  (is (= {"wer" 1 "asd" 3} (add-one-k-mer 1 "qwer" 3 {"asd" 3})))
+  )
+
+(deftest iter-over-text-test
+  (is (= {"qwe" 1 "wea" 1 "eas" 1 "asd" 1} (iter-over-text "qweasd" 3)))
+  (is (= {"asa" 3 "sas" 2} (iter-over-text "asasasa" 3)))
+  (is (= {"asas" 3 "sasa" 2} (iter-over-text "asasasas" 4)))
+  )
+
