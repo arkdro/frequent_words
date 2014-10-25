@@ -22,9 +22,18 @@
 (defn iter-over-text [text k]
   (iter-over-text-aux 0 text k {}))
 
+(defn find-max-items [data]
+  (let [max-val (second (apply max-key val data))
+        items (filter #(= (val %) max-val) data)
+        ks (map first items)
+        sorted (sort ks)]
+    sorted))
+
 (defn do-all-work [opts]
   (let [[text k-str] (pattern_count.core/read-data opts)
         k (Integer/parseInt k-str)
-        res (iter-over-text text k)]
+        freq-data (iter-over-text text k)
+        res (find-max-items freq-data)
+        ]
     res))
 
